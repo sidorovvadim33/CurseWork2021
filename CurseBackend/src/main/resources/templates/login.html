@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Змейка.</title>
+    <link rel="stylesheet" th:href="@{../css/login.css}"/>
+</head>
+<body>
+<div id="main-authorization">
+    <h2>Змейка</h2>
+    <br>
+    <p>Чтобы продолжить авторизируйтесь.</p>
+    <br>
+    <form th:action="@{/authorization}" method="get">
+        <label><b>Логин:</b></label>
+        <input type="text" placeholder="Введите логин" name="username" required>
+        <br>
+        <label><b>Пароль:</b></label>
+        <input type="password" placeholder="Введите пароль" name="password" required>
+        <br>
+
+        <div class="buttons">
+            <button id="main-authorization-reg-button">Зарегистрироваться</button>
+            <button class="enter">Войти</button>
+        </div>
+    </form>
+
+    <p>Авторизация необходима для
+        сохранения данных о выбранном вами уровне,<br>
+        набранных очках и статистике игровых сессий.
+    </p>
+</div>
+
+<div id="registration">
+    <h2>Регистрация</h2>
+    <br>
+    <p>Добро пожаловать на регистрацию в игре.</p>
+    <br>
+    <form th:action="@{/registration}" method="post">
+        <label><b>Логин:</b></label>
+        <input type="text" placeholder="Введите логин" name="username" required>
+        <br>
+        <label><b>Пароль:</b></label>
+        <input type="password" placeholder="Введите пароль" name="password" required>
+        <br>
+
+<!--        <label><b>Повторите:</b></label>-->
+<!--        <input type="password" placeholder="Повторите пароль" name="psw" required>-->
+<!--        <br>-->
+
+        <div class="buttons">
+            <button id="registration-back-btn">Назад</button>
+            <button id="registration-user-btn">Зарегистрироваться</button>
+        </div>
+    </form>
+</div>
+<script th:src="@{/js/login.js}"></script>
+</body>
+</html>

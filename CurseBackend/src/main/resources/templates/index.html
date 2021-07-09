@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Змейка.</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.js"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}"/>
+</head>
+<body>
+<header class="wrap">
+    <p class="score">ОЧКИ: <span id="score_value">0</span></p>
+</header>
+<canvas class="wrap" id="snake" width="500" height="500" tabindex="1"></canvas>
+
+<div id="wrapper">
+    <!--Экран игровой статистики-->
+    <div id="game_statistics" v-if="game_statistics">
+        <h2>СТАТИСТИКА</h2>
+        <br>
+
+    </div>
+
+    <!-- Game Over -->
+    <div id="gameover" v-if="gameover">
+        <h2>GAME OVER</h2>
+        <br>
+        <p>НАЖМИТЕ <span style="background-color: #FFFFFF; color: #000000">ПРОБЕЛ</span> ЧТОБЫ ВОЗОБНОВИТЬ ИГРУ</p>
+        <br>
+        <a id="newgame_gameover" >ИГРАТЬ</a>
+        <a id="setting_gameover" @click="settingsOpen">НАСТРОЙКИ</a>
+        <a id="statistics_gameover" @click="gameStatisticsOpen">СТАТИСТИКА</a>
+    </div>
+
+    <!-- Настройки -->
+    <div id="setting" v-if="setting">
+        <h2>НАСТРОЙКИ</h2>
+        <br>
+
+        <a id="newgame_setting">ИГРАТЬ</a>
+        <br>
+
+        <p>УРОВЕНЬ:
+            <input id="speed1" type="radio" name="speed" value="90" checked/>
+            <label for="speed1">ЛЕГКО</label>
+            <input id="speed2" type="radio" name="speed" value="65"/>
+            <label for="speed2">НОРМАЛЬНО</label>
+            <input id="speed3" type="radio" name="speed" value="35"/>
+            <label for="speed3">СЛОЖНО</label>
+        </p>
+        <br>
+
+        <p>СТЕНЫ:
+            <br>
+            <input id="wallon" type="radio" name="wall" value="1" checked/>
+            <label for="wallon">ДА</label>
+            <br>
+            <input id="walloff" type="radio" name="wall" value="0"/>
+            <label for="walloff">НЕТ</label>
+        </p>
+    </div>
+
+    <!-- Главное меню -->
+    <div id="menu" v-if="menu">
+        <h2>Змейка</h2>
+        <br>
+        <a id="newgame_menu" >ИГРАТЬ</a>
+        <a id="setting_menu" @click="settingsOpen">НАСТРОЙКИ</a>
+        <a id="statistics_menu" @click="gameStatisticsOpen">СТАТИСТИКА</a>
+    </div>
+</div>
+
+<script th:src="@{/js/script.js}"></script>
+</body>
+
+</html>
